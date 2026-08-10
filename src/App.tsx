@@ -12,7 +12,13 @@ const NotFound = lazy(() => import('@/pages/not-found'));
 function Router() {
   return (
     <Layout>
-      <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <Suspense
+        fallback={
+          <div className="min-h-screen flex items-center justify-center">
+            Loading...
+          </div>
+        }
+      >
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/business" component={Business} />
@@ -27,9 +33,7 @@ function Router() {
 function App() {
   return (
     <MotionConfig reducedMotion="user">
-     <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
-  <Router />
-</WouterRouter>
+      <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
         <Router />
       </WouterRouter>
       <SonnerToaster />
