@@ -4,7 +4,10 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-   base: '/WebCraft-Services/',
+  // GitHub Pages serves this project from https://nishantgulia147-star.github.io/WebCraft-Services/,
+  // so every built asset URL and the Wouter router base (see src/App.tsx,
+  // which reads import.meta.env.BASE_URL) need this prefix.
+  base: '/WebCraft-Services/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
