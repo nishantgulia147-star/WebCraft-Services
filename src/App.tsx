@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { MotionConfig } from 'framer-motion';
 import { Toaster as SonnerToaster } from '@/components/ui/sonner';
-import { Route, Switch, Router as WouterRouter } from 'wouter';
+import { Route, Switch, Router as WouterRouter, useHashLocation } from 'wouter';
 import { Layout } from '@/components/layout/Layout';
 
 const Home = lazy(() => import('@/pages/Home'));
@@ -27,7 +27,10 @@ function Router() {
 function App() {
   return (
     <MotionConfig reducedMotion="user">
-      <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
+     <WouterRouter
+  base={import.meta.env.BASE_URL.replace(/\/$/, '')}
+  hook={useHashLocation}
+>
         <Router />
       </WouterRouter>
       <SonnerToaster />
